@@ -5,8 +5,8 @@
 int partition(int a[],int low,int high)
 {
     int pivot=a[low];
-    int i=low;
-    int j=high+1;
+    int i=low; //LEFT SCANNER
+    int j=high+1; //RIGHT TO LEFT SCANNER (+1 COZ CODE DOES -- FIRST)
     int temp;
 
     while(1){
@@ -17,11 +17,11 @@ int partition(int a[],int low,int high)
             j--;
         }while(a[j]>pivot);
 
-        if(i>=j)
+        if(i>=j)//EXIT LOOP CONDITION SCANNERS CROSSED(COMPLETE CYCLE)
             break;
 
         temp=a[i];
-        a[i]=a[j];
+        a[i]=a[j];// SWAP LEFT AND RIGHT
         a[j]=temp;
     }
     temp=a[low];
