@@ -18,14 +18,14 @@ int main() {
         }
     }
 
-    // Floyd's Algorithm
+    // Floyd's Algorithm [i->k->j or i->j]
     for (int k = 0; k < n; k++) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (a[i][k] != INF && a[k][j] != INF &&
-                    a[i][k] + a[k][j] < a[i][j]) {
+                    a[i][k] + a[k][j] < a[i][j]) {// i->k + k->j < i->j
 
-                    a[i][j] = a[i][k] + a[k][j];
+                    a[i][j] = a[i][k] + a[k][j];// IF SMALLER CHANGE VALUE
                 }
             }
         }
